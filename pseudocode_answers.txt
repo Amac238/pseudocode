@@ -11,4 +11,41 @@ Create a function that searches for a specific entry in a phonebook.
 Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
 
 1. You use pseudocode to brainstorm and develop algorithms.
-2. Nothing. pseudocode is no
+2. Nothing. pseudocode is not a programming language, so it would not run on a computer.
+3.
+
+INPUT first number
+INPUT second number
+IF first number is greater than the second number
+    PRINT first number
+ELSE
+    PRINT second number
+END IF
+
+4.
+
+INIT total to 0
+WHILE the number is not 100
+  PRINT number
+  ADD number to total
+END WHILE
+
+5.
+
+INPUT name
+IF name is in phonebook
+    return entry 
+ELSE
+    return 'Not in Phonebook'
+END IF
+
+6.
+
+var name = prompt('Please enter the name you are looking for', 'Who are you looking for?')
+
+if (name == phonebook.names){
+    return phonebook.entry;
+}
+else {
+    return('The person you are looking for is not in the phonebook.');
+}
