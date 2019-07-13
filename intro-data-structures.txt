@@ -1,0 +1,45 @@
+1. Give all the code and written answers in a file named intro-data-structures.txt:
+
+A.
+var rideLine = ['Vivian', 'Ava', 'Josh', 'Patrick', 'Mike'];
+
+function addRider(rider) {
+  rideLine.push(rider);
+  return rideLine;
+}
+
+function findRider(rider) {
+  var riderIndex = rideLine.indexOf(rider);
+  if (riderIndex === -1) {
+    riderIndex = 'No rider';
+  }
+  return riderIndex;
+}
+
+function cutInLine(currentRider, newRider) {
+  currentRiderIndex = findRider(currentRider);
+  rideLine.splice(currentRiderIndex, 0, newRider);
+  return rideLine;
+}
+
+function removeRider(rider) {
+  riderIndex = findRider(rider);
+  rideLine.splice(riderIndex, 1);
+  return rideLine;
+}
+
+b. addRider('Mary');
+c. findRider('Josh');
+d. findRider('Emily');
+      -the indexOf method will return -1 or 'No rider'.
+e. cutInLine('Ava', 'Melissa');
+f. removeRider('Patrick');
+
+2. Provide another real-world example that you can model using a data structure.
+
+A:  You could model all employees of a business, because a lot of them will have different titles. 
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+A:  Developers may access the desired data based on their title and name.
+Manipulation can be achieved by adding to the list of employees and being able to change their title.
