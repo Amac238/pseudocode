@@ -32,20 +32,28 @@ END WHILE
 
 5.
 
-INPUT name
-IF name is in phonebook
-    return entry 
-ELSE
-    return 'Not in Phonebook'
-END IF
+FUNCTION findEntry (input NAME parameter)
+  SET phonebook to an ARRAY with names
+  FOR each entry in the phonebook
+    IF entry equals NAME parameter
+      RETURN that name  
+    END IF
+  END FOR
+  RETURN "No match found"
+END FUNCTION
 
 6.
 
-var name = prompt('Please enter the name you are looking for', 'Who are you looking for?')
+function findEntry(name){
+  var phonebook = ['Austin', 'Steve', 'LeAnne', 'Aubree'];
+  for (var i = 0; i < phonebook.length; i++){
 
-if (name == phonebook.names){
-    return phonebook.entry;
-}
-else {
-    return('The person you are looking for is not in the phonebook.');
-}
+   if (phonebook[i] === name) {
+    return "We found a match: " +  "  " + name;
+   } 
+  }
+    return ' no match found ';
+ }
+
+findEntry('Steve'); //in phonebook
+findEntry('jake'); //not in phonebook
