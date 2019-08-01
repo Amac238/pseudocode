@@ -8,7 +8,10 @@ Stacks and queues allow engineers to rank tasks, create an order of operations, 
 
 Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word.
 Which data structure would you use for each option and why?
-c) For the UNDO option I would use a stack data structure (to eliminate the last letter), for the REDO option I would use a queue data structure (to recover the first letter that I had deleted )
+c) For both UNDO  and Redo I would use a stack structure- the first action that should appear is the last one that was done aka LIFO: 
+
+ when we perform the Undo, we want to undo the MOST RECENT EDIT THAT HAS NOT BEEN UNDONE 
+ same way, when we perform a Redo, we want to REDO THE MOST RECENT UNDO THAT HAS NOT BEEN REDONE. Again, we need LIFO access to the Undo operations. We also need to use two stacks, one to keep the edit history, and one to keep the Undo history.
 
 
 Programming Questions
@@ -37,21 +40,51 @@ console.log (reverseWord);
 //To delete an item, take all of the elements in the queue one at a time and put them at the end of the queue,
 //except for the last one which should be removed and returned.
 
-function example(queue){
-      var newQueue = [];
-      var itemToRemove = [];
-
-      for(var i=0;i<queue.length; i++){
-        if(i==queue.length-1){
-          itemToRemove.push(queue[i]);
-        }else{
-          newQueue.push(queue[i]);
+A.  
+var shiftReturn =function (queue){
+    var firstToGo=[];        	 
+    var lastToReturn=[];     
+    for ( let i=0; i<queue.length; i++){ 
+        if( i!==queue.length -1){  
+            firstToGo=queue.shift();   
+            queue.push(firstToGo);    
+            console.log(queue);
+        } else {
+            lastToReturn=queue.shift();   
+            console.log(queue);
         }
-      }
+    } 
+      return lastToReturn;           
+}
 
-    return itemToRemove;
-    }
-console.log(example('austin!'))
+shiftReturn([‘ana','ella’,’bob’]);
+  ["ella", "bob", "ana"]
+  ["bob", "ana", "ella"]
+  ["ana", "ella"]
+  "bob"
+
+B.  class Stack {
+    constructor(){
+     this.pop = function(queue){
+       var newQueue = [];
+       var itemToRemove = [];
+
+       for(var i=0;i<queue.length; i++){
+         if(i==queue.length-1){
+           itemToRemove.push(queue[i]);
+         }else{
+           newQueue.push(queue[i]);
+         }
+       }
+
+       return itemToRemove;   
+
+     }
+   }
+}
+
+var stack = new Stack();
+console.log(stack.pop([1,2,3]);
 
 //Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
 
